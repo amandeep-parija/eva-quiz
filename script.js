@@ -3,8 +3,18 @@ let currentIndex = 0;
 let score = 0;
 let selectedAnswer = null;
 
+
+function getRandomQuestions(arr, count) {
+  let shuffled = [...arr].sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, count);
+}
+
 function startQuiz(section) {
-  currentQuestions = quizData[section];
+  currentQuestions = getRandomQuestions(
+    quizData[section],
+    Math.min(30, quizData[section].length)
+  );
+
   currentIndex = 0;
   score = 0;
 
@@ -19,7 +29,9 @@ function loadQuestion() {
 
   let q = currentQuestions[currentIndex];
 
-  document.getElementById("question").innerText = q.question;
+  document.getElementById("question").innerText = 
+    `Q${currentIndex + 1}. ${q.question}`;
+
   document.getElementById("question-image").src = q.image;
 
   let optionsContainer = document.getElementById("options");
@@ -32,9 +44,9 @@ function loadQuestion() {
     btn.onclick = () => {
       selectedAnswer = index;
 
-      // highlight selected
       let allBtns = optionsContainer.querySelectorAll("button");
       allBtns.forEach(b => b.style.background = "#1e293b");
+
       btn.style.background = "#22c55e";
     };
 
@@ -67,11 +79,24 @@ function showResult() {
   document.getElementById("quiz-container").classList.add("hidden");
   document.getElementById("result-container").classList.remove("hidden");
 
+  let performance = "";
+
+  let percent = (score / currentQuestions.length) * 100;
+
+  if (percent >= 80) performance = "Excellent 🔥";
+  else if (percent >= 50) performance = "Good 👍";
+  else performance = "Needs Improvement ⚠️";
+
   document.getElementById("result-text").innerText =
-    `Your Score: ${score} / ${currentQuestions.length}`;
+    `Your Score: ${score} / ${currentQuestions.length} \n${performance}`;
 }
 
 function goHome() {
   document.getElementById("result-container").classList.add("hidden");
   document.getElementById("section-container").classList.remove("hidden");
 }
+
+
+
+
+
