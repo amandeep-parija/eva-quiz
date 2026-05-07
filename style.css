@@ -78,3 +78,51 @@ body {
 .hidden {
   display: none;
 }
+
+
+/* result testt */
+
+.result-card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #4EA9D0;
+  color: #000;
+  padding: 30px;
+  border-radius: 30px;
+  width: 350px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  z-index: 1000;
+
+
+}
+
+.result-card button {
+  margin-top: 20px;
+  padding: 8px 20px;
+  border-radius: 20px;
+  border: none;
+  background: #AADFF5;
+  color: black;
+  cursor: pointer;
+}
+.result-card:hover{
+  background-color: #5674EE;
+}
+
+.result-card button:hover{
+background-color: red;
+color: white;
+transition: 0.2s ease;
+}
+
+#result-message{
+  text-align: start;
+}
+
+
+
+.hidden {
+  display: none;
+}

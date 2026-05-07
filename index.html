@@ -2,14 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Fenestration Quiz</title>
+  <title>EVAIQ</title>
+  <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <div class="container">
 
-    <h1 class="title">EvA Training Quiz</h1>
+    <h1 class="title">EVAIQ – Train • Test • Improve</h1>
 
     <!-- Section -->
     <div id="section-container" class="section-container">
@@ -34,6 +35,12 @@
     <div id="result-container" class="hidden">
       <h2 id="result-text"></h2>
       <button onclick="goHome()">Back to Home</button>
+    </div>
+
+
+    <div id="result-card" class="result-card hidden">
+      <p id="result-message"></p>
+      <button class="result-btn" onclick="closeResult()">OK</button>
     </div>
 
   </div>
